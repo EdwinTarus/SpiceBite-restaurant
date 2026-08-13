@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SpiceBite Restaurant</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/output.css') }}"
+    >
+</head>
+
+<body class="min-h-screen bg-[var(--spice-dark)] text-white">
+
+    <main class="flex min-h-screen items-center justify-center px-6">
+
+        <div class="text-center">
+
+            <p class="mb-3 font-body text-sm uppercase tracking-[0.25em] text-[var(--spice-gold)]">
+                Westlands, Nairobi
+            </p>
+
+            <h1 class="font-display text-5xl font-semibold text-[var(--spice-cream)]">
+                SpiceBite Restaurant
+            </h1>
+
+            <p class="mt-4 font-body text-[var(--spice-muted)]">
+                Delicious Food, Great Experience
+            </p>
+
+            <button
+                class="mt-8 rounded-full bg-[var(--spice-orange)] px-7 py-3 font-body font-semibold text-white transition hover:bg-[var(--spice-gold)]"
+            >
+                View Our Menu
+            </button>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
