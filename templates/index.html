@@ -1,44 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>SpiceBite Restaurant</title>
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/output.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
 
-<body class="min-h-screen bg-[var(--spice-dark)] text-white">
+<body class="bg-[var(--spice-cream)] text-[var(--spice-text)]">
 
-    <main class="flex min-h-screen items-center justify-center px-6">
+    <!-- Navbar -->
+    <header class="border-b border-[var(--spice-border)] bg-[var(--spice-cream)]">
+        <nav class="mx-auto flex h-20 w-full items-center justify-between px-6 lg:px-10 xl:px-12">
 
-        <div class="text-center">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-3">
+                <div
+                    class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--spice-orange)] text-white">
+                    <span class="text-lg">🍴</span>
+                </div>
 
-            <p class="mb-3 font-body text-sm uppercase tracking-[0.25em] text-[var(--spice-gold)]">
-                Westlands, Nairobi
-            </p>
+                <div class="leading-none">
+                    <span class="block font-display text-xl font-bold text-[var(--spice-dark)]">
+                        SpiceBite
+                    </span>
 
-            <h1 class="font-display text-5xl font-semibold text-[var(--spice-cream)]">
-                SpiceBite Restaurant
-            </h1>
+                    <span class="mt-1 block font-body text-[10px] uppercase tracking-[0.25em] text-[var(--spice-gold)]">
+                        Restaurant
+                    </span>
+                </div>
+            </a>
 
-            <p class="mt-4 font-body text-[var(--spice-muted)]">
-                Delicious Food, Great Experience
-            </p>
+            <!-- Desktop Navigation -->
+            <div class="hidden items-center gap-8 lg:flex">
 
-            <button
-                class="mt-8 rounded-full bg-[var(--spice-orange)] px-7 py-3 font-body font-semibold text-white transition hover:bg-[var(--spice-gold)]"
-            >
-                View Our Menu
+                <a href="#home" class="font-body text-base font-medium text-[var(--spice-orange)]">
+                    Home
+                </a>
+
+                <a href="#about"
+                    class="font-body text-base font-medium text-[var(--spice-dark)] transition hover:text-[var(--spice-orange)]">
+                    About Us
+                </a>
+
+                <a href="#menu"
+                    class="font-body text-base font-medium text-[var(--spice-dark)] transition hover:text-[var(--spice-orange)]">
+                    Menu
+                </a>
+
+                <a href="#gallery"
+                    class="font-body text-base font-medium text-[var(--spice-dark)] transition hover:text-[var(--spice-orange)]">
+                    Gallery
+                </a>
+
+                <a href="#reservations"
+                    class="font-body text-base font-medium text-[var(--spice-dark)] transition hover:text-[var(--spice-orange)]">
+                    Reservations
+                </a>
+
+                <a href="#contact"
+                    class="font-body text-base font-medium text-[var(--spice-dark)] transition hover:text-[var(--spice-orange)]">
+                    Contact
+                </a>
+
+            </div>
+
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/254712345678"
+                class="hidden items-center gap-2 rounded-full bg-[var(--spice-orange)] px-5 py-3 font-body text-sm font-semibold text-white transition hover:bg-[var(--spice-gold)] lg:flex">
+                <span>WhatsApp</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button type="button"
+                class="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--spice-dark)] lg:hidden"
+                aria-label="Open navigation menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
+                    stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
             </button>
+
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-[calc(100vh-5rem)] overflow-hidden">
+
+        <!-- Hero Image -->
+        <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="SpiceBite Restaurant"
+            class="absolute inset-0 h-full w-full object-cover">
+        <!-- Hero Overlay -->
+        <div class="absolute inset-0"
+            style="background: linear-gradient(110deg, rgba(28,15,8,0.88) 0%, rgba(28,15,8,0.65) 55%, rgba(28,15,8,0.4) 100%);">
+        </div>
+        <div class="absolute inset-0 z-10 flex items-center">
+            <div class="w-full px-6 lg:px-16 xl:px-16">
+                <span class="font-body text-sm font-semibold uppercase tracking-[0.2em] text-[var(--spice-orange)]">
+                    Westlands, Nairobi
+                </span>
+
+                <h1 class="mt-4 font-display text-7xl font-bold leading-tight text-[var(--spice-cream)]">
+                    Delicious Food, <br>
+                    <span class="text-[var(--spice-orange)]">Great
+                    </span>
+                    Experience
+                </h1>
+
+                <p class="mt-6 max-w-xl font-body text-base leading-relaxed text-white/75">
+                    Discover rich flavors, fresh ingredients and recipes made with love. <br>
+                    Your favorite dishes, served fresh every single day.
+                </p>
+
+                <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+
+                    <a href="#menu"
+                        class="inline-flex items-center justify-center rounded-full bg-[var(--spice-orange)] px-7 py-3.5 font-body text-sm font-semibold text-white transition hover:bg-[var(--spice-gold)]">
+                        View Our Menu
+                    </a>
+
+                    <a href="#reservations"
+                        class="inline-flex items-center justify-center rounded-full border border-white/70 bg-transparent px-7 py-3.5 font-body text-sm font-semibold text-white transition hover:bg-white/10 hover:text-white">
+                        Book a Table
+                    </a>
+
+                </div>
+
+                <!-- Hero Information -->
+                <div class="mt-10 grid max-w-2xl grid-cols-1 gap-x-20 gap-y-7 sm:grid-cols-2">
+
+                    <!-- Opening Hours -->
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 shrink-0 text-[var(--spice-muted)]">
+                            <!-- Clock icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7"
+                                stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6v6l4 2m6-2a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <p class="font-body text-sm text-white/40">
+                                Opening Hours
+                            </p>
+                            <p class="mt-1 font-body text-sm font-medium text-white">
+                                Mon - Sun: 8:00 AM – 10:00 PM
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Location -->
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 shrink-0 text-[var(--spice-muted)]">
+                            <!-- Location icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7"
+                                stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21s7-5.25 7-11a7 7 0 1 0-14 0c0 5.75 7 11 7 11Z" />
+                                <circle cx="12" cy="10" r="2.5" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <p class="font-body text-sm text-white/40">
+                                Location
+                            </p>
+                            <p class="mt-1 font-body text-sm font-medium text-white">
+                                Westlands, Nairobi, Kenya
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Call / WhatsApp -->
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 shrink-0 text-[var(--spice-muted)]">
+                            <!-- Phone icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7"
+                                stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372a1.5 1.5 0 0 0-1.132-1.455l-3.42-.855a1.5 1.5 0 0 0-1.516.571l-.75 1a12.035 12.035 0 0 1-5.27-5.27l1-.75a1.5 1.5 0 0 0 .571-1.516l-.855-3.42A1.5 1.5 0 0 0 8.872 5.25H7.5A2.25 2.25 0 0 0 5.25 7.5v-.75Z" />
+                            </svg>
+                        </div>
+
+                        <div>
+                            <p class="font-body text-sm text-white/40">
+                                Call / WhatsApp
+                            </p>
+                            <p class="mt-1 font-body text-sm font-medium text-white">
+                                +254 712 345 678
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </main>
+    </section>
 
 </body>
+
 </html>
