@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Chicken Pilau",
+        "price": "KSh 700",
+        "desc": "Aromatic basmati rice slow-cooked with tender chicken, whole spices and caramelised onions.",
+        "img": "/static/images/chicken-pilau.jpg",
+        "tag": "Signature"
+    },
+    {
+        "name": "Beef Stir Fry",
+        "price": "KSh 800",
+        "desc": "Strips of prime beef tossed with seasonal vegetables in a rich umami-forward sauce.",
+        "img": "/static/images/beef-stir-fry.jpg",
+        "tag": "Popular"
+    },
+    {
+        "name": "Grilled Tilapia",
+        "price": "KSh 900",
+        "desc": "Whole Lake Victoria tilapia marinated in citrus and herbs, charcoal grilled to perfection.",
+        "img": "/static/images/grilled-tilapia.jpg",
+        "tag": "Chef's Pick"
+    },
+    {
+        "name": "Creamy Pasta",
+        "price": "KSh 650",
+        "desc": "Al dente pasta ribbons in a velvety cream sauce with roasted garlic and fresh herbs.",
+        "img": "/static/images/creamy-pasta.jpg",
+        "tag": "Favourite"
+    }
+]

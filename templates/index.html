@@ -13,7 +13,7 @@
 <body class="bg-[var(--spice-cream)] text-[var(--spice-text)]">
 
     <!-- Navbar -->
-    <header class="border-b border-[var(--spice-border)] bg-[var(--spice-cream)]">
+    <header class="sticky top-0 z-50 border-b border-[var(--spice-border)] bg-[var(--spice-cream)]">
         <nav class="mx-auto flex h-20 w-full items-center justify-between px-6 lg:px-10 xl:px-12">
 
             <!-- Logo -->
@@ -206,6 +206,33 @@
         </div>
 
     </section>
+
+    <section id="popular-dishes" class="bg-[var(--spice-cream)] py-20">
+
+        <!-- Section Heading -->
+        <div class="mx-auto max-w-3xl px-6 text-center">
+
+            <p class="font-body text-sm font-semibold uppercase tracking-[0.2em] text-[var(--spice-orange)]">
+                Crowd Pleasers
+            </p>
+
+            <h2 class="mt-3 font-display text-4xl font-bold text-[var(--spice-dark)] sm:text-5xl">
+                Our Popular Dishes
+            </h2>
+
+            <p class="mt-4 font-body text-base leading-relaxed text-[var(--spice-text)]/70">
+                A taste of what we serve best — crafted daily with fresh local produce
+            </p>
+
+        </div>
+
+        <div id="popular-dishes-grid"
+            class="mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4">
+        </div>
+
+    </section>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
 
