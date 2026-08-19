@@ -1,0 +1,114 @@
+[
+    {
+        "name": "Tea with doughnuts",
+        "desc": "Fluffy East African doughnuts with spiced Kenyan tea.",
+        "price": "KSh 200",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Porridge & Eggs",
+        "desc": "millet porridge with scrambled eggs and tomatoes.",
+        "price": "KSh 280",
+        "category": "Breakfast"
+    },
+    {
+        "name": "French Toast",
+        "desc": "Thick-cut brioche, cinnamon sugar, maple syrup, fresh berries.",
+        "price": "KSh 450",
+        "category": "Breakfast"
+    },
+    {
+        "name": "Full English",
+        "desc": "Sausages, bacon, beans, egg, toast and roasted tomato.",
+        "price": "KSh 650",
+        "category": "Breakfast"
+    },
+
+    {
+        "name": "Chicken Pilau",
+        "desc": "Aromatic rice slow-cooked with whole spices and chicken.",
+        "price": "KSh 700",
+        "category": "Main Dishes"
+    },
+    {
+        "name": "Beef Stew & Ugali",
+        "desc": "Slow-braised Kenyan beef in rich tomato sauce with ugali.",
+        "price": "KSh 650",
+        "category": "Main Dishes"
+    },
+    {
+        "name": "Creamy Pasta",
+        "desc": "Fettuccine in roasted garlic cream, parmesan and herbs.",
+        "price": "KSh 650",
+        "category": "Main Dishes"
+    },
+    {
+        "name": "Mukimo",
+        "desc": "Mashed green maize, peas and potatoes with kachumbari.",
+        "price": "KSh 500",
+        "category": "Main Dishes"
+    },
+
+    {
+        "name": "Grilled Tilapia",
+        "desc": "Whole tilapia marinated in citrus and herbs, charcoal grilled.",
+        "price": "KSh 900",
+        "category": "Grills"
+    },
+    {
+        "name": "Nyama Choma",
+        "desc": "Kenyan-style charcoal roasted goat with kachumbari.",
+        "price": "KSh 950",
+        "category": "Grills"
+    },
+    {
+        "name": "Beef Stir Fry",
+        "desc": "Prime beef strips with seasonal vegetables in umami sauce.",
+        "price": "KSh 800",
+        "category": "Grills"
+    },
+    {
+        "name": "Grilled Chicken",
+        "desc": "Half chicken marinated 24h in SpiceBite house blend.",
+        "price": "KSh 850",
+        "category": "Grills"
+    },
+
+    {
+        "name": "Dawa Cocktail",
+        "desc": "Vodka, lime, honey and ginger over crushed ice.",
+        "price": "KSh 450",
+        "category": "Drinks"
+    },
+    {
+        "name": "Passion Juice",
+        "desc": "Fresh-pressed passion fruit, chilled, no added sugar.",
+        "price": "KSh 200",
+        "category": "Drinks"
+    },
+    {
+        "name": "Mango Lassi",
+        "desc": "Creamy yogurt blended with Kenyan mango and cardamom.",
+        "price": "KSh 300",
+        "category": "Drinks"
+    },
+    {
+        "name": "Kenyan AA Coffee",
+        "desc": "Single-origin pour-over from Mt Kenya highlands.",
+        "price": "KSh 350",
+        "category": "Drinks"
+    },
+
+    {
+        "name": "Mahamri & Cream",
+        "desc": "Coconut sweet bread with vanilla ice cream.",
+        "price": "KSh 350",
+        "category": "Desserts"
+    },
+    {
+        "name": "Chocolate Lava Cake",
+        "desc": "Warm dark chocolate cake with molten centre and cream.",
+        "price": "KSh 500",
+        "category": "Desserts"
+    }
+]
