@@ -402,6 +402,159 @@
 
     </section>
 
+    <!-- Reservations Section -->
+    <section id="reservations" class="bg-[var(--spice-cream)] py-20 lg:py-24">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1.0fr_1.0fr] lg:gap-20">
+
+            <!-- Left Content -->
+            <div class="flex flex-col justify-center">
+
+                <p class="font-body text-sm font-semibold uppercase tracking-[0.2em] text-[var(--spice-orange)]">
+                    Book Ahead
+                </p>
+
+                <h2 class="mt-3 font-display text-4xl font-bold text-[var(--spice-dark)] sm:text-5xl">
+                    Reserve Your Table
+                </h2>
+
+                <p class="mt-5 max-w-xl font-body text-base leading-relaxed text-[var(--spice-text)]/70">
+                    Secure your spot for an unforgettable dining experience. We recommend booking at least 24 hours in
+                    advance, especially for weekends and special occasions.
+                </p>
+
+                <div class="mt-10 bg-white rounded-2xl shadow-sm">
+
+                    <div class="flex items-start p-4 gap-4">
+
+                        <!-- WhatsApp Icon Box -->
+                        <div
+                            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[var(--whatsapp)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="h-6 w-6 text-white">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.198.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                                <path
+                                    d="M20.52 3.48A11.82 11.82 0 0 0 12.088 0C5.51 0 .16 5.35.16 11.93c0 2.102.548 4.154 1.59 5.964L.057 24l6.25-1.64a11.87 11.87 0 0 0 5.78 1.51h.005c6.58 0 11.93-5.35 11.93-11.93a11.84 11.84 0 0 0-3.502-8.46zm-8.43 18.37h-.004a9.87 9.87 0 0 1-5.03-1.38l-.36-.214-3.71.973.99-3.618-.235-.371a9.85 9.85 0 0 1-1.51-5.31c0-5.45 4.44-9.89 9.895-9.89a9.83 9.83 0 0 1 7.01 2.91 9.84 9.84 0 0 1 2.9 7.01c-.002 5.45-4.44 9.89-9.895 9.89z" />
+                            </svg>
+                        </div>
+
+                        <!-- WhatsApp Content -->
+                        <div>
+
+                            <h3 class="font-body text-sm font-semibold text-[var(--spice-dark)]">
+                                Prefer to book on WhatsApp?
+                            </h3>
+
+                            <p class="mt-1.5 max-w-md font-body text-sm leading-relaxed text-[var(--spice-text)]/65">
+                                Message us directly and we'll confirm your table within minutes.
+                            </p>
+
+                            <a href="https://wa.me/254712345678?text=Hi%20SpiceBite!%20I%27d%20like%20to%20make%20a%20reservation."
+                                target="_blank" rel="noopener noreferrer"
+                                class="mt-3 inline-flex items-center rounded-full bg-[var(--whatsapp)] px-5 py-2.5 font-body text-sm font-semibold text-white transition hover:opacity-90">
+                                Book via WhatsApp
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Reservation Card -->
+            <div class="rounded-2xl bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+
+                <form>
+
+                    <!-- Row 1: Name & Phone -->
+                    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+
+                        <!-- Full Name -->
+                        <div>
+                            <label for="fullName" class="font-body text-sm font-medium text-[var(--spice-dark)]">
+                                Full Name
+                            </label>
+
+                            <input type="text" id="fullName" name="fullName" placeholder="Your full name"
+                                class="mt-2 w-full rounded-lg bg-[var(--spice-cream)] px-4 py-3 font-body text-sm text-[var(--spice-dark)] outline-none placeholder:text-[var(--spice-muted)]/60 focus:ring-2 focus:ring-[var(--spice-orange)]/30">
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div>
+                            <label for="phone" class="font-body text-sm font-medium text-[var(--spice-dark)]">
+                                Phone Number
+                            </label>
+
+                            <input type="tel" id="phone" name="phone" placeholder="+254 712 345 678"
+                                class="mt-2 w-full rounded-lg bg-[var(--spice-cream)] px-4 py-3 font-body text-sm text-[var(--spice-dark)] outline-none placeholder:text-[var(--spice-muted)]/60 focus:ring-2 focus:ring-[var(--spice-orange)]/30">
+                        </div>
+
+                    </div>
+
+
+                    <!-- Row 2: Date, Time & Guests -->
+                    <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+
+                        <!-- Date -->
+                        <div>
+                            <label for="reservationDate" class="font-body text-sm font-medium text-[var(--spice-dark)]">
+                                Date
+                            </label>
+
+                            <input type="date" id="reservationDate" name="date"
+                                class="mt-2 w-full rounded-lg bg-[var(--spice-cream)] px-4 py-3 font-body text-sm text-[var(--spice-dark)] outline-none focus:ring-2 focus:ring-[var(--spice-orange)]/30">
+                        </div>
+
+                        <!-- Time -->
+                        <div>
+                            <label for="reservationTime" class="font-body text-sm font-medium text-[var(--spice-dark)]">
+                                Time
+                            </label>
+
+                            <input type="time" id="reservationTime" name="time"
+                                class="mt-2 w-full rounded-lg bg-[var(--spice-cream)] px-4 py-3 font-body text-sm text-[var(--spice-dark)] outline-none focus:ring-2 focus:ring-[var(--spice-orange)]/30">
+                        </div>
+
+                        <!-- Guests -->
+                        <div>
+                            <label for="guests" class="font-body text-sm font-medium text-[var(--spice-dark)]">
+                                Guests
+                            </label>
+
+                            <select id="guests" name="guests"
+                                class="mt-2 w-full rounded-lg bg-[var(--spice-cream)] px-4 py-3 font-body text-sm text-[var(--spice-dark)] outline-none focus:ring-2 focus:ring-[var(--spice-orange)]/30">
+                                <option value="">Select</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6 Guests</option>
+                                <option value="7">7 Guests</option>
+                                <option value="8">8 Guests</option>
+                                <option value="9">9 Guests</option>
+                                <option value="10">10 Guests</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="mt-8 w-full rounded-lg bg-[var(--spice-orange)] px-6 py-3.5 font-body text-sm font-semibold text-white transition hover:bg-[var(--spice-gold)]">
+                        Book a Table
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
