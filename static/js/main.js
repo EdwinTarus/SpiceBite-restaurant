@@ -1,17 +1,15 @@
 fetch("/static/data/popular-dishes.json")
-    .then(response => response.json())
-    .then(dishes => {
+  .then((response) => response.json())
+  .then((dishes) => {
+    const dishesGrid = document.getElementById("popular-dishes-grid");
 
-        const dishesGrid = document.getElementById("popular-dishes-grid");
+    dishes.forEach((dish) => {
+      const card = document.createElement("article");
 
-        dishes.forEach(dish => {
+      card.className =
+        "overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg";
 
-            const card = document.createElement("article");
-
-            card.className =
-                "overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg";
-
-            card.innerHTML = `
+      card.innerHTML = `
                 <!-- Image -->
                 <div class="relative h-64 overflow-hidden">
 
@@ -52,12 +50,12 @@ fetch("/static/data/popular-dishes.json")
                 </div>
             `;
 
-            dishesGrid.appendChild(card);
-        });
-    })
-    .catch(error => {
-        console.error("Error loading popular dishes:", error);
+      dishesGrid.appendChild(card);
     });
+  })
+  .catch((error) => {
+    console.error("Error loading popular dishes:", error);
+  });
 
 const menuCategories = document.getElementById("menuCategories");
 const menuItemsContainer = document.getElementById("menuItems");
@@ -68,63 +66,54 @@ let activeCategory = "All";
 let showAllMenuItems = false;
 
 fetch("/static/data/menu.json")
-    .then(response => response.json())
-    .then(menuItems => {
+  .then((response) => response.json())
+  .then((menuItems) => {
+    allMenuItems = menuItems;
 
-        allMenuItems = menuItems;
-
-        createCategories(menuItems);
-        displayMenuItems(menuItems);
-
-    })
-    .catch(error => {
-        console.error("Error loading menu:", error);
-    });
+    createCategories(menuItems);
+    displayMenuItems(menuItems);
+  })
+  .catch((error) => {
+    console.error("Error loading menu:", error);
+  });
 
 function createCategories(menuItems) {
+  const categories = [
+    "All",
+    ...new Set(menuItems.map((item) => item.category)),
+  ];
 
-    const categories = [
-        "All",
-        ...new Set(menuItems.map(item => item.category))
-    ];
+  categories.forEach((category) => {
+    const button = document.createElement("button");
 
-    categories.forEach(category => {
+    button.type = "button";
+    button.textContent = category;
 
-        const button = document.createElement("button");
+    updateCategoryButton(button, category);
 
-        button.type = "button";
-        button.textContent = category;
+    button.addEventListener("click", () => {
+      activeCategory = category;
 
-        updateCategoryButton(button, category);
+      updateCategoryButtons();
 
-        button.addEventListener("click", () => {
+      if (category === "All") {
+        displayMenuItems(allMenuItems);
+      } else {
+        const filteredItems = allMenuItems.filter(
+          (item) => item.category === category,
+        );
 
-            activeCategory = category;
-
-            updateCategoryButtons();
-
-            if (category === "All") {
-                displayMenuItems(allMenuItems);
-            } else {
-
-                const filteredItems = allMenuItems.filter(
-                    item => item.category === category
-                );
-
-                displayMenuItems(filteredItems);
-            }
-
-        });
-
-        menuCategories.appendChild(button);
+        displayMenuItems(filteredItems);
+      }
     });
+
+    menuCategories.appendChild(button);
+  });
 }
 
 function updateCategoryButton(button, category) {
-
-    if (category === activeCategory) {
-
-        button.className = `
+  if (category === activeCategory) {
+    button.className = `
             rounded-full
             bg-[var(--spice-orange)]
             px-5 py-2.5
@@ -134,10 +123,8 @@ function updateCategoryButton(button, category) {
             text-white
             transition
         `;
-
-    } else {
-
-        button.className = `
+  } else {
+    button.className = `
             rounded-full
             bg-white
             px-5 py-2.5
@@ -149,38 +136,29 @@ function updateCategoryButton(button, category) {
             hover:bg-[var(--spice-orange)]
             hover:text-white
         `;
-    }
+  }
 }
 
 function updateCategoryButtons() {
+  const buttons = menuCategories.querySelectorAll("button");
 
-    const buttons = menuCategories.querySelectorAll("button");
-
-    buttons.forEach(button => {
-
-        updateCategoryButton(
-            button,
-            button.textContent
-        );
-
-    });
+  buttons.forEach((button) => {
+    updateCategoryButton(button, button.textContent);
+  });
 }
 
 function displayMenuItems(items) {
-    console.log("displayMenuItems called");
-    console.log("Items received:", items);
+  console.log("displayMenuItems called");
+  console.log("Items received:", items);
 
-    menuItemsContainer.innerHTML = "";
+  menuItemsContainer.innerHTML = "";
 
-    const itemsToDisplay = showAllMenuItems
-        ? items
-        : items.slice(0, 8);
+  const itemsToDisplay = showAllMenuItems ? items : items.slice(0, 8);
 
-    itemsToDisplay.forEach(item => {
+  itemsToDisplay.forEach((item) => {
+    const card = document.createElement("article");
 
-        const card = document.createElement("article");
-
-        card.className = `
+    card.className = `
             rounded-xl
             bg-white
             p-5
@@ -190,7 +168,7 @@ function displayMenuItems(items) {
             hover:shadow-md
         `;
 
-        card.innerHTML = `
+    card.innerHTML = `
             <div class="flex items-start justify-between gap-4">
 
                 <div>
@@ -210,57 +188,134 @@ function displayMenuItems(items) {
             </div>
         `;
 
-        menuItemsContainer.appendChild(card);
-    });
+    menuItemsContainer.appendChild(card);
+  });
 }
 
 viewFullMenuBtn.addEventListener("click", () => {
+  showAllMenuItems = !showAllMenuItems;
 
-    showAllMenuItems = !showAllMenuItems;
+  if (activeCategory === "All") {
+    displayMenuItems(allMenuItems);
+  } else {
+    const filteredItems = allMenuItems.filter(
+      (item) => item.category === activeCategory,
+    );
 
-    if (activeCategory === "All") {
+    displayMenuItems(filteredItems);
+  }
 
-        displayMenuItems(allMenuItems);
-
-    } else {
-
-        const filteredItems = allMenuItems.filter(
-            item => item.category === activeCategory
-        );
-
-        displayMenuItems(filteredItems);
-    }
-
-    updateViewButton();
+  updateViewButton();
 });
 
 function updateViewButton() {
+  const text = viewFullMenuBtn.querySelector("span");
+  const icon = viewFullMenuBtn.querySelector("svg");
 
-    const text = viewFullMenuBtn.querySelector("span");
-    const icon = viewFullMenuBtn.querySelector("svg");
+  if (showAllMenuItems) {
+    text.textContent = "Show Less";
 
-    if (showAllMenuItems) {
-
-        text.textContent = "Show Less";
-
-        icon.innerHTML = `
+    icon.innerHTML = `
             <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 d="m5 15 7-7 7 7"
             />
         `;
+  } else {
+    text.textContent = "View Full Menu";
 
-    } else {
-
-        text.textContent = "View Full Menu";
-
-        icon.innerHTML = `
+    icon.innerHTML = `
             <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 d="m5 9 7 7 7-7"
             />
         `;
-    }
+  }
 }
+
+const restaurantMap = L.map("restaurant-map").setView([-1.2641, 36.8028], 15);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "&copy; OpenStreetMap contributors",
+}).addTo(restaurantMap);
+
+const restaurantIcon = L.divIcon({
+  className: "spicebite-marker",
+  html: `
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--spice-orange)] text-white shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.8"
+                stroke="currentColor"
+                class="h-5 w-5">
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7 3v7m0-7v7m0-7v7m0 0v11M7 10c-1.1 0-2-.9-2-2V3m4 7c1.1 0 2-.9 2-2V3M17 3v18m0-18c-1.657 1.343-2.5 3.09-2.5 5.5S15.343 13 17 13"
+                />
+            </svg>
+        </div>
+    `,
+  iconSize: [20, 20],
+  iconAnchor: [10, 10],
+});
+
+const restaurantMarker = L.marker([-1.2641, 36.8028], {
+  icon: restaurantIcon,
+}).addTo(restaurantMap);
+
+setTimeout(() => {
+  restaurantMap.invalidateSize();
+}, 200);
+
+restaurantMarker.bindPopup(`
+    <div class="min-w-[220px]">
+        
+        <h3 class="font-display text-lg font-bold text-[var(--spice-dark)]">
+            SpiceBite Restaurant
+        </h3>
+
+        <div class="mt-2 border-t border-[var(--spice-border)] pt-2">
+            
+            <div class="flex items-center gap-2">
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.8"
+                    stroke="currentColor"
+                    class="h-4 w-4 text-[var(--spice-orange)]">
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 21s7-5.25 7-11a7 7 0 1 0-14 0c0 5.75 7 11 7 11Z"
+                    />
+                    <circle cx="12" cy="10" r="2.25" />
+                </svg>
+
+                <p class="font-body text-xs font-semibold uppercase tracking-wide text-[var(--spice-muted)]">
+                    Find us at
+                </p>
+
+            </div>
+
+            <p class="mt-1 font-body text-sm leading-relaxed text-[var(--spice-text)]">
+                Westlands, Nairobi, Kenya
+            </p>
+
+        </div>
+
+        <a
+            href="https://www.google.com/maps/dir/?api=1&destination=-1.2641,36.8028"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-2 inline-flex w-full items-center justify-center rounded-full bg-[var(--spice-orange)] !text-white px-4 py-2.5 font-body text-sm font-semibold transition hover:opacity-90"
+        >
+            Get Directions
+        </a>
+
+    </div>
+`);
