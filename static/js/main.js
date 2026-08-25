@@ -7,7 +7,7 @@ fetch("/static/data/popular-dishes.json")
       const card = document.createElement("article");
 
       card.className =
-        "overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg";
+        "w-[82vw] shrink-0 overflow-hidden rounded-2xl bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:shrink";
 
       card.innerHTML = `
                 <!-- Image -->
@@ -327,6 +327,10 @@ if (footerYear) {
 }
 
 const galleryGrid = document.getElementById("gallery-grid");
+const lightbox = document.getElementById("gallery-lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxTitle = document.getElementById("lightbox-title");
+const lightboxClose = document.getElementById("lightbox-close");
 
 fetch("/static/data/gallery.json")
   .then((response) => response.json())
@@ -363,6 +367,14 @@ fetch("/static/data/gallery.json")
             </p>
         </div>
     `;
+      galleryItem.addEventListener("click", () => {
+        lightboxImage.src = `/static/images/${item.image}`;
+        lightboxImage.alt = item.title;
+        lightboxTitle.textContent = item.title;
+
+        lightbox.classList.remove("hidden");
+        lightbox.classList.add("flex");
+      });
 
       galleryGrid.appendChild(galleryItem);
     });
@@ -370,3 +382,108 @@ fetch("/static/data/gallery.json")
   .catch((error) => {
     console.error("Error loading gallery:", error);
   });
+
+lightboxClose.addEventListener("click", () => {
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+});
+
+lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+        lightbox.classList.add("hidden");
+        lightbox.classList.remove("flex");
+    }
+});
+
+const mobileMenuButton = document.getElementById("mobile-menu-button");
+const mobileMenu = document.getElementById("mobile-menu");
+const menuIconPath = document.getElementById("menu-icon-path");
+
+mobileMenuButton.addEventListener("click", () => {
+    const isOpen = !mobileMenu.classList.contains("hidden");
+
+    mobileMenu.classList.toggle("hidden");
+
+    mobileMenuButton.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+    );
+
+    if (!isOpen) {
+        // Change hamburger to X
+        menuIconPath.setAttribute(
+            "d",
+            "M6 6l12 12M6 18L18 6"
+        );
+
+        mobileMenuButton.setAttribute(
+            "aria-label",
+            "Close navigation menu"
+        );
+    } else {
+        // Change X back to hamburger
+        menuIconPath.setAttribute(
+            "d",
+            "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        );
+
+        mobileMenuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+    }
+});
+
+const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+
+mobileMenuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+
+        mobileMenuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        mobileMenuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+        menuIconPath.setAttribute(
+            "d",
+            "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        );
+    });
+});
+
+document.addEventListener("click", (event) => {
+    const clickedInsideMenu =
+        mobileMenu.contains(event.target);
+
+    const clickedMenuButton =
+        mobileMenuButton.contains(event.target);
+
+    if (
+        !mobileMenu.classList.contains("hidden") &&
+        !clickedInsideMenu &&
+        !clickedMenuButton
+    ) {
+        mobileMenu.classList.add("hidden");
+
+        mobileMenuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        mobileMenuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+        menuIconPath.setAttribute(
+            "d",
+            "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        );
+    }
+});

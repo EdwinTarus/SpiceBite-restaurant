@@ -76,17 +76,60 @@
             </a>
 
             <!-- Mobile Menu Button -->
-            <button type="button"
+            <button id="mobile-menu-button" type="button"
                 class="flex h-10 w-10 items-center justify-center rounded-lg text-[var(--spice-dark)] lg:hidden"
-                aria-label="Open navigation menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
-                    stroke="currentColor" class="h-6 w-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
+                aria-label="Open navigation menu" aria-expanded="false">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.8" stroke="currentColor" class="h-6 w-6">
+
+                    <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round"
                         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
 
         </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden border-t border-[var(--spice-border)] bg-[var(--spice-dark)] lg:hidden">
+
+            <div class="flex flex-col px-6 py-5">
+
+                <a href="#home" class="py-4 font-body text-base font-medium text-[var(--spice-cream)]">
+                    Home
+                </a>
+
+                <a href="#about"
+                    class="py-4 font-body text-base font-medium text-[var(--spice-cream)] transition hover:text-[var(--spice-orange)]">
+                    About Us
+                </a>
+
+                <a href="#menu"
+                    class="py-4 font-body text-base font-medium text-[var(--spice-cream)] transition hover:text-[var(--spice-orange)]">
+                    Menu
+                </a>
+
+                <a href="#gallery"
+                    class="py-4 font-body text-base font-medium text-[var(--spice-cream)] transition hover:text-[var(--spice-orange)]">
+                    Gallery
+                </a>
+
+                <a href="#reservations"
+                    class="py-4 font-body text-base font-medium text-[var(--spice-cream)] transition hover:text-[var(--spice-orange)]">
+                    Reservations
+                </a>
+
+                <a href="#contact"
+                    class="py-4 font-body text-base font-medium text-[var(--spice-cream)] transition hover:text-[var(--spice-orange)]">
+                    Contact
+                </a>
+
+                <a href="https://wa.me/254712345678"
+                    class="mt-4 rounded-full bg-[var(--spice-orange)] px-5 py-3 text-center font-body text-sm font-semibold text-white transition hover:bg-[var(--spice-gold)]">
+                    WhatsApp
+                </a>
+
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -229,7 +272,7 @@
         </div>
 
         <div id="popular-dishes-grid"
-            class="mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4">
+            class="mx-auto mt-12 flex max-w-7xl overflow-x-auto gap-6 px-6 pb-4 sm:grid sm:grid-cols-2 lg:grid-cols-4">
         </div>
 
     </section>
@@ -420,11 +463,32 @@
             </div>
 
             <div id="gallery-grid" class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:auto-rows-[180px]">
-                <!-- Gallery images will be loaded here -->
+
             </div>
         </div>
 
     </section>
+
+    <!-- Gallery Lightbox -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 px-6 py-10">
+
+        <!-- Close Button -->
+        <button id="lightbox-close"
+            class="absolute right-6 top-6 text-3xl text-white transition hover:text-[var(--spice-orange)]"
+            aria-label="Close gallery">
+            &times;
+        </button>
+
+        <!-- Lightbox Content -->
+        <div class="relative max-h-full max-w-5xl text-center">
+
+            <img id="lightbox-image" src="" alt="" class="mx-auto max-h-[80vh] max-w-full rounded-2xl object-contain">
+
+            <p id="lightbox-title" class="mt-4 font-body text-base font-medium text-white">
+            </p>
+
+        </div>
+    </div>
 
     <!-- Reservations Section -->
     <section id="reservations" class="bg-[var(--spice-cream)] py-20 lg:py-24">
@@ -601,7 +665,7 @@
 
                 <!-- Map -->
                 <div id="restaurant-map"
-                    class="h-[400px] overflow-hidden rounded-2xl bg-[var(--spice-cream)] lg:h-[500px]">
+                    class="relative z-0 h-[400px] overflow-hidden rounded-2xl bg-[var(--spice-cream)] lg:h-[500px]">
 
                 </div>
 
@@ -882,7 +946,7 @@
                     </li>
 
                     <li>
-                        <a href="#about-us"
+                        <a href="#about"
                             class="font-body text-sm text-white/60 transition-colors duration-150 hover:text-white">
                             About Us
                         </a>
