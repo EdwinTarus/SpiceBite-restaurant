@@ -1,0 +1,30 @@
+[
+    {
+        "image": "chef.jpg",
+        "title": "Behind the Flavors"
+    },
+    {
+        "image": "coffee.jpg",
+        "title": "A Little Latte Love"
+    },
+    {
+        "image": "grilled-chicken.jpg",
+        "title": "Flame-Grilled Goodness"
+    },
+    {
+        "image": "indoor-day.jpg",
+        "title": "A Place to Unwind"
+    },
+    {
+        "image": "indoor-night.jpg",
+        "title": "Evenings at SpiceBite"
+    },
+    {
+        "image": "rice-beef.jpg",
+        "title": "Comfort in Every Bite"
+    },
+    {
+        "image": "westlands-atmosphere.jpg",
+        "title": "The Westlands Atmosphere"
+    }
+]
