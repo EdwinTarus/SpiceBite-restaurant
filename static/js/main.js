@@ -323,5 +323,50 @@ restaurantMarker.bindPopup(`
 const footerYear = document.getElementById("footer-year");
 
 if (footerYear) {
-    footerYear.textContent = new Date().getFullYear();
+  footerYear.textContent = new Date().getFullYear();
 }
+
+const galleryGrid = document.getElementById("gallery-grid");
+
+fetch("/static/data/gallery.json")
+  .then((response) => response.json())
+  .then((images) => {
+    const sizes = [
+      "lg:col-span-2 lg:row-span-2",
+      "lg:col-span-1 lg:row-span-1",
+      "lg:col-span-1 lg:row-span-1",
+      "lg:col-span-1 lg:row-span-2",
+      "lg:col-span-1 lg:row-span-1",
+      "lg:col-span-2 lg:row-span-1",
+      "lg:col-span-1 lg:row-span-1",
+    ];
+
+    images.sort(() => Math.random() - 0.5);
+    images.forEach((item, index) => {
+      const galleryItem = document.createElement("div");
+
+      galleryItem.className = `
+        ${sizes[index]}
+        group relative overflow-hidden rounded-2xl
+    `;
+
+      galleryItem.innerHTML = `
+        <img
+            src="/static/images/${item.image}"
+            alt="${item.title}"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        >
+
+        <div class="absolute inset-x-0 lg:translate-y-full bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pb-4 transition-transform duration-300 group-hover:translate-y-0 pt-12">
+            <p class="font-body text-sm font-medium text-white">
+                ${item.title}
+            </p>
+        </div>
+    `;
+
+      galleryGrid.appendChild(galleryItem);
+    });
+  })
+  .catch((error) => {
+    console.error("Error loading gallery:", error);
+  });
